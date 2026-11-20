@@ -1,0 +1,31 @@
+# Render Blueprint (https://render.com/docs/blueprint-spec).
+# Render → New → Blueprint → pick this repo. Fill in the `sync: false` values when prompted.
+services:
+  - type: web
+    name: doctor-tracker-api
+    runtime: node
+    plan: free # sleeps after ~15 min idle; use `starter` for an always-on API
+    # Keep the API, the Atlas cluster (AWS us-east-1) and Vercel functions (iad1) in the same area.
+    region: virginia
+    # tsup is a devDependency, so install dev deps even though NODE_ENV=production.
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/v1/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: '22'
+      - key: NODE_ENV
+        value: production
+      - key: LOG_LEVEL
+        value: info
+      - key: JWT_EXPIRES_IN
+        value: 1d
+      - key: JWT_SECRET
+        generateValue: true
+      # mongodb+srv://<user>:<password>@<cluster>.mongodb.net/doctor-tracker?retryWrites=true&w=majority
+      - key: MONGODB_URI
+        sync: false
+      # Your Vercel URL, e.g. https://doctor-tracker.vercel.app (comma-separate several)
+      - key: CLIENT_ORIGIN
+        sync: false
