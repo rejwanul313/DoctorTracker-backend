@@ -26,6 +26,6 @@ services:
       # mongodb+srv://<user>:<password>@<cluster>.mongodb.net/doctor-tracker?retryWrites=true&w=majority
       - key: MONGODB_URI
         sync: false
-      # Your Vercel URL, e.g. https://doctor-tracker.vercel.app (comma-separate several)
+      # The frontend's Vercel URL (browser origin allowed by CORS). Comma-separate several.
       - key: CLIENT_ORIGIN
-        sync: false
+        value: https://doctortracker-frontend-six.vercel.app
