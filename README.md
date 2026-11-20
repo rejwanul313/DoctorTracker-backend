@@ -2,12 +2,15 @@
 
 > REST API for Doctor Tracker, a secure portal for managing doctors, their patients and care analytics. Built with Express 5, MongoDB and Zod.
 
-|                   |                                                                                 |
-| ----------------- | ------------------------------------------------------------------------------- |
-| **Live app**      | _add after deploy_                                                              |
-| **Live API**      | _add after deploy_                                                              |
-| **Frontend repo** | [DoctorTracker-frontend](https://github.com/rejwanul313/DoctorTracker-frontend) |
-| **Backend repo**  | [DoctorTracker-backend](https://github.com/rejwanul313/DoctorTracker-backend)   |
+|                   |                                                                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Live app**      | https://doctortracker-frontend-six.vercel.app                                                                                    |
+| **Live API**      | https://doctor-tracker-api-ebia.onrender.com/api/v1 ([health check](https://doctor-tracker-api-ebia.onrender.com/api/v1/health)) |
+| **Demo login**    | `admin@doctortracker.dev` / `Admin@123`                                                                                          |
+| **Frontend repo** | [DoctorTracker-frontend](https://github.com/rejwanul313/DoctorTracker-frontend)                                                  |
+| **Backend repo**  | [DoctorTracker-backend](https://github.com/rejwanul313/DoctorTracker-backend)                                                    |
+
+> The API runs on Render's free tier, which sleeps when idle: the first request after a quiet period can take up to a minute. The login page wakes it automatically.
 
 Doctor Tracker gives hospital administrators one place to register doctors, assign and manage their patients, and see what's happening across the practice. Every list is searchable, filterable by date and attributes, and paginated. Every query is backed by a MongoDB index (verified by automated query-plan tests), so the portal stays fast as records grow. The dashboard turns raw records into KPIs and charts: visit trends, condition mix, patients per doctor and staff distribution. All of it sits behind authenticated, role-protected access.
 
